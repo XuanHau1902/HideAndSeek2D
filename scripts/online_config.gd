@@ -4,4 +4,4 @@ extends RefCounted
 ##
 ## Để trống "" thì bản cài trên máy chỉ chơi được trong mạng LAN (như trước),
 ## còn bản web sẽ không vào được phòng nào.
-const RELAY_URL := ""
+const RELAY_URL := "wss://tron-tim-relay.onrender.com"
