@@ -1,0 +1,7 @@
+# Godot 4+ specific ignores
+.godot/
+/android/
+# Bản web xuất ra
+/build/web/
+# Node
+node_modules/

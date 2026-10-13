@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: tron-tim-relay
+    runtime: node
+    region: singapore
+    plan: free
+    rootDir: relay
+    buildCommand: "echo ok"
+    startCommand: "node server.js"
+    healthCheckPath: /

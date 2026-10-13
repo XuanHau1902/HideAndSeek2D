@@ -1,0 +1,1288 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/game.gd" id="1_game"]
+[ext_resource type="Script" path="res://scripts/floor.gd" id="2_floor"]
+[ext_resource type="Script" path="res://scripts/wall.gd" id="3_wall"]
+[ext_resource type="Script" path="res://scripts/prop.gd" id="4_prop"]
+[ext_resource type="Script" path="res://scripts/hud.gd" id="5_hud"]
+[ext_resource type="Script" path="res://scripts/decor.gd" id="6_decor"]
+[ext_resource type="Script" path="res://scripts/tree.gd" id="7_tree"]
+
+[node name="Game" type="Node2D"]
+script = ExtResource("1_game")
+
+[node name="Floors" type="Node2D" parent="."]
+
+[node name="Grass" type="Node2D" parent="Floors"]
+position = Vector2(0, 0)
+script = ExtResource("2_floor")
+size = Vector2(2600, 1800)
+pattern = "grass"
+color_a = Color(0.525, 0.722, 0.298, 1)
+color_b = Color(0.576, 0.769, 0.349, 1)
+
+[node name="FrontPath" type="Node2D" parent="Floors"]
+position = Vector2(1345, 1513)
+script = ExtResource("2_floor")
+size = Vector2(100, 271)
+pattern = "concrete"
+color_a = Color(0.725, 0.706, 0.659, 1)
+color_b = Color(0.655, 0.635, 0.588, 1)
+
+[node name="Bathroom" type="Node2D" parent="Floors"]
+position = Vector2(513, 313)
+script = ExtResource("2_floor")
+size = Vector2(387, 447)
+pattern = "tiles"
+color_a = Color(0.561, 0.361, 0.235, 1)
+color_b = Color(0.647, 0.427, 0.282, 1)
+
+[node name="Bedroom1" type="Node2D" parent="Floors"]
+position = Vector2(900, 313)
+script = ExtResource("2_floor")
+size = Vector2(600, 447)
+pattern = "carpet"
+color_a = Color(0.435, 0.561, 0.769, 1)
+color_b = Color(0.333, 0.451, 0.624, 1)
+
+[node name="Bedroom2" type="Node2D" parent="Floors"]
+position = Vector2(1500, 313)
+script = ExtResource("2_floor")
+size = Vector2(587, 447)
+pattern = "planks"
+color_a = Color(0.827, 0.604, 0.361, 1)
+color_b = Color(0.706, 0.486, 0.251, 1)
+
+[node name="Kitchen" type="Node2D" parent="Floors"]
+position = Vector2(513, 760)
+script = ExtResource("2_floor")
+size = Vector2(587, 727)
+pattern = "checker"
+color_a = Color(0.933, 0.941, 0.949, 1)
+color_b = Color(0.788, 0.82, 0.847, 1)
+
+[node name="LivingRoom" type="Node2D" parent="Floors"]
+position = Vector2(1100, 760)
+script = ExtResource("2_floor")
+size = Vector2(987, 727)
+pattern = "planks"
+color_a = Color(0.788, 0.49, 0.235, 1)
+color_b = Color(0.659, 0.396, 0.173, 1)
+
+[node name="Laundry" type="Node2D" parent="Floors"]
+position = Vector2(1760, 1140)
+script = ExtResource("2_floor")
+size = Vector2(327, 347)
+pattern = "concrete"
+color_a = Color(0.663, 0.671, 0.678, 1)
+color_b = Color(0.6, 0.608, 0.62, 1)
+
+[node name="Decor" type="Node2D" parent="."]
+
+[node name="BathMat" type="Node2D" parent="Decor"]
+position = Vector2(700, 560)
+script = ExtResource("6_decor")
+size = Vector2(100, 56)
+style = "mat"
+color = Color(0.353, 0.627, 0.722, 1)
+
+[node name="Bed1Rug" type="Node2D" parent="Decor"]
+position = Vector2(1220, 570)
+script = ExtResource("6_decor")
+size = Vector2(190, 120)
+style = "rug"
+color = Color(0.612, 0.188, 0.188, 1)
+
+[node name="Bed2Rug" type="Node2D" parent="Decor"]
+position = Vector2(1790, 580)
+script = ExtResource("6_decor")
+size = Vector2(150, 150)
+style = "round_rug"
+color = Color(0.788, 0.631, 0.227, 1)
+
+[node name="LivingRug" type="Node2D" parent="Decor"]
+position = Vector2(1600, 905)
+script = ExtResource("6_decor")
+size = Vector2(250, 150)
+style = "rug"
+color = Color(0.557, 0.184, 0.184, 1)
+
+[node name="KitchenRug" type="Node2D" parent="Decor"]
+position = Vector2(800, 1080)
+script = ExtResource("6_decor")
+size = Vector2(230, 170)
+style = "rug"
+color = Color(0.235, 0.431, 0.561, 1)
+
+[node name="DoorMat" type="Node2D" parent="Decor"]
+position = Vector2(1395, 1540)
+script = ExtResource("6_decor")
+size = Vector2(90, 40)
+style = "mat"
+color = Color(0.478, 0.353, 0.22, 1)
+
+[node name="SideDoorMat" type="Node2D" parent="Decor"]
+position = Vector2(470, 1220)
+script = ExtResource("6_decor")
+size = Vector2(36, 80)
+style = "mat"
+color = Color(0.478, 0.353, 0.22, 1)
+
+[node name="Walls" type="Node2D" parent="."]
+
+[node name="Wall1" type="StaticBody2D" parent="Walls"]
+position = Vector2(543.5, 300)
+script = ExtResource("3_wall")
+size = Vector2(113, 26)
+style = "outer"
+
+[node name="Wall2" type="StaticBody2D" parent="Walls"]
+position = Vector2(660, 300)
+script = ExtResource("3_wall")
+size = Vector2(120, 26)
+style = "window"
+
+[node name="Wall3" type="StaticBody2D" parent="Walls"]
+position = Vector2(925, 300)
+script = ExtResource("3_wall")
+size = Vector2(410, 26)
+style = "outer"
+
+[node name="Wall4" type="StaticBody2D" parent="Walls"]
+position = Vector2(1200, 300)
+script = ExtResource("3_wall")
+size = Vector2(140, 26)
+style = "window"
+
+[node name="Wall5" type="StaticBody2D" parent="Walls"]
+position = Vector2(1495, 300)
+script = ExtResource("3_wall")
+size = Vector2(450, 26)
+style = "outer"
+
+[node name="Wall6" type="StaticBody2D" parent="Walls"]
+position = Vector2(1790, 300)
+script = ExtResource("3_wall")
+size = Vector2(140, 26)
+style = "window"
+
+[node name="Wall7" type="StaticBody2D" parent="Walls"]
+position = Vector2(1986.5, 300)
+script = ExtResource("3_wall")
+size = Vector2(253, 26)
+style = "outer"
+
+[node name="Wall8" type="StaticBody2D" parent="Walls"]
+position = Vector2(568.5, 1500)
+script = ExtResource("3_wall")
+size = Vector2(163, 26)
+style = "outer"
+
+[node name="Wall9" type="StaticBody2D" parent="Walls"]
+position = Vector2(710, 1500)
+script = ExtResource("3_wall")
+size = Vector2(120, 26)
+style = "window"
+
+[node name="Wall10" type="StaticBody2D" parent="Walls"]
+position = Vector2(1060, 1500)
+script = ExtResource("3_wall")
+size = Vector2(580, 26)
+style = "outer"
+
+[node name="Wall11" type="StaticBody2D" parent="Walls"]
+position = Vector2(1500, 1500)
+script = ExtResource("3_wall")
+size = Vector2(120, 26)
+style = "outer"
+
+[node name="Wall12" type="StaticBody2D" parent="Walls"]
+position = Vector2(1610, 1500)
+script = ExtResource("3_wall")
+size = Vector2(100, 26)
+style = "window"
+
+[node name="Wall13" type="StaticBody2D" parent="Walls"]
+position = Vector2(1770, 1500)
+script = ExtResource("3_wall")
+size = Vector2(220, 26)
+style = "outer"
+
+[node name="Wall14" type="StaticBody2D" parent="Walls"]
+position = Vector2(1930, 1500)
+script = ExtResource("3_wall")
+size = Vector2(100, 26)
+style = "window"
+
+[node name="Wall15" type="StaticBody2D" parent="Walls"]
+position = Vector2(2046.5, 1500)
+script = ExtResource("3_wall")
+size = Vector2(133, 26)
+style = "outer"
+
+[node name="Wall16" type="StaticBody2D" parent="Walls"]
+position = Vector2(500, 376.5)
+script = ExtResource("3_wall")
+size = Vector2(26, 127)
+style = "outer"
+
+[node name="Wall17" type="StaticBody2D" parent="Walls"]
+position = Vector2(500, 500)
+script = ExtResource("3_wall")
+size = Vector2(26, 120)
+style = "window"
+
+[node name="Wall18" type="StaticBody2D" parent="Walls"]
+position = Vector2(500, 720)
+script = ExtResource("3_wall")
+size = Vector2(26, 320)
+style = "outer"
+
+[node name="Wall19" type="StaticBody2D" parent="Walls"]
+position = Vector2(500, 940)
+script = ExtResource("3_wall")
+size = Vector2(26, 120)
+style = "window"
+
+[node name="Wall20" type="StaticBody2D" parent="Walls"]
+position = Vector2(500, 1090)
+script = ExtResource("3_wall")
+size = Vector2(26, 180)
+style = "outer"
+
+[node name="Wall21" type="StaticBody2D" parent="Walls"]
+position = Vector2(500, 1373.5)
+script = ExtResource("3_wall")
+size = Vector2(26, 227)
+style = "outer"
+
+[node name="Wall22" type="StaticBody2D" parent="Walls"]
+position = Vector2(2100, 371.5)
+script = ExtResource("3_wall")
+size = Vector2(26, 117)
+style = "outer"
+
+[node name="Wall23" type="StaticBody2D" parent="Walls"]
+position = Vector2(2100, 505)
+script = ExtResource("3_wall")
+size = Vector2(26, 150)
+style = "window"
+
+[node name="Wall24" type="StaticBody2D" parent="Walls"]
+position = Vector2(2100, 730)
+script = ExtResource("3_wall")
+size = Vector2(26, 300)
+style = "outer"
+
+[node name="Wall25" type="StaticBody2D" parent="Walls"]
+position = Vector2(2100, 1105)
+script = ExtResource("3_wall")
+size = Vector2(26, 290)
+style = "outer"
+
+[node name="Wall26" type="StaticBody2D" parent="Walls"]
+position = Vector2(2100, 1295)
+script = ExtResource("3_wall")
+size = Vector2(26, 90)
+style = "window"
+
+[node name="Wall27" type="StaticBody2D" parent="Walls"]
+position = Vector2(2100, 1413.5)
+script = ExtResource("3_wall")
+size = Vector2(26, 147)
+style = "outer"
+
+[node name="Wall28" type="StaticBody2D" parent="Walls"]
+position = Vector2(576.5, 760)
+script = ExtResource("3_wall")
+size = Vector2(127, 14)
+style = "inner"
+
+[node name="Wall29" type="StaticBody2D" parent="Walls"]
+position = Vector2(1010, 760)
+script = ExtResource("3_wall")
+size = Vector2(580, 14)
+style = "inner"
+
+[node name="Wall30" type="StaticBody2D" parent="Walls"]
+position = Vector2(1600, 760)
+script = ExtResource("3_wall")
+size = Vector2(440, 14)
+style = "inner"
+
+[node name="Wall31" type="StaticBody2D" parent="Walls"]
+position = Vector2(1993.5, 760)
+script = ExtResource("3_wall")
+size = Vector2(187, 14)
+style = "inner"
+
+[node name="Wall32" type="StaticBody2D" parent="Walls"]
+position = Vector2(900, 533)
+script = ExtResource("3_wall")
+size = Vector2(14, 440)
+style = "inner"
+
+[node name="Wall33" type="StaticBody2D" parent="Walls"]
+position = Vector2(1500, 416.5)
+script = ExtResource("3_wall")
+size = Vector2(14, 207)
+style = "inner"
+
+[node name="Wall34" type="StaticBody2D" parent="Walls"]
+position = Vector2(1500, 676.5)
+script = ExtResource("3_wall")
+size = Vector2(14, 153)
+style = "inner"
+
+[node name="Wall35" type="StaticBody2D" parent="Walls"]
+position = Vector2(1100, 863.5)
+script = ExtResource("3_wall")
+size = Vector2(14, 193)
+style = "inner"
+
+[node name="Wall36" type="StaticBody2D" parent="Walls"]
+position = Vector2(1100, 1170)
+script = ExtResource("3_wall")
+size = Vector2(14, 260)
+style = "inner"
+
+[node name="Wall37" type="StaticBody2D" parent="Walls"]
+position = Vector2(1100, 1433.5)
+script = ExtResource("3_wall")
+size = Vector2(14, 107)
+style = "inner"
+
+[node name="Wall38" type="StaticBody2D" parent="Walls"]
+position = Vector2(1760, 1203.5)
+script = ExtResource("3_wall")
+size = Vector2(14, 113)
+style = "inner"
+
+[node name="Wall39" type="StaticBody2D" parent="Walls"]
+position = Vector2(1760, 1413.5)
+script = ExtResource("3_wall")
+size = Vector2(14, 147)
+style = "inner"
+
+[node name="Wall40" type="StaticBody2D" parent="Walls"]
+position = Vector2(1920, 1140)
+script = ExtResource("3_wall")
+size = Vector2(334, 14)
+style = "inner"
+
+[node name="Wall41" type="StaticBody2D" parent="Walls"]
+position = Vector2(1300, 8)
+script = ExtResource("3_wall")
+size = Vector2(2600, 16)
+style = "fence"
+
+[node name="Wall42" type="StaticBody2D" parent="Walls"]
+position = Vector2(1300, 1792)
+script = ExtResource("3_wall")
+size = Vector2(2600, 16)
+style = "fence"
+
+[node name="Wall43" type="StaticBody2D" parent="Walls"]
+position = Vector2(8, 900)
+script = ExtResource("3_wall")
+size = Vector2(16, 1768)
+style = "fence"
+
+[node name="Wall44" type="StaticBody2D" parent="Walls"]
+position = Vector2(2592, 900)
+script = ExtResource("3_wall")
+size = Vector2(16, 1768)
+style = "fence"
+
+[node name="Props" type="Node2D" parent="."]
+
+[node name="Prop1" type="StaticBody2D" parent="Props"]
+position = Vector2(565, 392)
+script = ExtResource("4_prop")
+prop_type = "bathtub"
+
+[node name="Prop2" type="StaticBody2D" parent="Props"]
+position = Vector2(850, 352)
+script = ExtResource("4_prop")
+prop_type = "toilet"
+
+[node name="Prop3" type="StaticBody2D" parent="Props"]
+position = Vector2(718, 347)
+script = ExtResource("4_prop")
+prop_type = "counter"
+
+[node name="Prop4" type="StaticBody2D" parent="Props"]
+position = Vector2(862, 452)
+script = ExtResource("4_prop")
+prop_type = "bin"
+
+[node name="Prop5" type="StaticBody2D" parent="Props"]
+position = Vector2(556, 716)
+script = ExtResource("4_prop")
+prop_type = "plant"
+
+[node name="Prop6" type="StaticBody2D" parent="Props"]
+position = Vector2(860, 714)
+script = ExtResource("4_prop")
+prop_type = "washer"
+
+[node name="Prop7" type="StaticBody2D" parent="Props"]
+position = Vector2(560, 540)
+script = ExtResource("4_prop")
+prop_type = "shower"
+
+[node name="Prop8" type="StaticBody2D" parent="Props"]
+position = Vector2(800, 700)
+script = ExtResource("4_prop")
+prop_type = "laundry_basket"
+
+[node name="Prop9" type="StaticBody2D" parent="Props"]
+position = Vector2(630, 327)
+script = ExtResource("4_prop")
+prop_type = "towel_shelf"
+
+[node name="Prop10" type="StaticBody2D" parent="Props"]
+position = Vector2(600, 700)
+script = ExtResource("4_prop")
+prop_type = "bucket"
+
+[node name="Prop11" type="StaticBody2D" parent="Props"]
+position = Vector2(1012, 392)
+script = ExtResource("4_prop")
+prop_type = "bed"
+
+[node name="Prop12" type="StaticBody2D" parent="Props"]
+position = Vector2(948, 344)
+script = ExtResource("4_prop")
+prop_type = "nightstand"
+
+[node name="Prop13" type="StaticBody2D" parent="Props"]
+position = Vector2(1076, 344)
+script = ExtResource("4_prop")
+prop_type = "nightstand"
+
+[node name="Prop14" type="StaticBody2D" parent="Props"]
+position = Vector2(1400, 342)
+script = ExtResource("4_prop")
+prop_type = "wardrobe"
+
+[node name="Prop15" type="StaticBody2D" parent="Props"]
+position = Vector2(945, 680)
+rotation = 1.570796
+script = ExtResource("4_prop")
+prop_type = "desk"
+
+[node name="Prop16" type="StaticBody2D" parent="Props"]
+position = Vector2(990, 680)
+rotation = 1.570796
+script = ExtResource("4_prop")
+prop_type = "chair"
+
+[node name="Prop17" type="StaticBody2D" parent="Props"]
+position = Vector2(1200, 346)
+script = ExtResource("4_prop")
+prop_type = "plant"
+
+[node name="Prop18" type="StaticBody2D" parent="Props"]
+position = Vector2(1450, 708)
+script = ExtResource("4_prop")
+prop_type = "box"
+
+[node name="Prop19" type="StaticBody2D" parent="Props"]
+position = Vector2(1295, 340)
+script = ExtResource("4_prop")
+prop_type = "lamp"
+
+[node name="Prop20" type="StaticBody2D" parent="Props"]
+position = Vector2(1465, 450)
+rotation = 1.570796
+script = ExtResource("4_prop")
+prop_type = "bookshelf"
+
+[node name="Prop21" type="StaticBody2D" parent="Props"]
+position = Vector2(1220, 700)
+rotation = 3.141593
+script = ExtResource("4_prop")
+prop_type = "armchair"
+
+[node name="Prop22" type="StaticBody2D" parent="Props"]
+position = Vector2(1130, 334)
+script = ExtResource("4_prop")
+prop_type = "dresser"
+
+[node name="Prop23" type="StaticBody2D" parent="Props"]
+position = Vector2(1012, 470)
+script = ExtResource("4_prop")
+prop_type = "teddy"
+
+[node name="Prop24" type="StaticBody2D" parent="Props"]
+position = Vector2(1405, 700)
+script = ExtResource("4_prop")
+prop_type = "guitar"
+
+[node name="Prop25" type="StaticBody2D" parent="Props"]
+position = Vector2(1100, 600)
+script = ExtResource("4_prop")
+prop_type = "beanbag"
+
+[node name="Prop26" type="StaticBody2D" parent="Props"]
+position = Vector2(1988, 392)
+script = ExtResource("4_prop")
+prop_type = "bed"
+
+[node name="Prop27" type="StaticBody2D" parent="Props"]
+position = Vector2(1924, 344)
+script = ExtResource("4_prop")
+prop_type = "nightstand"
+
+[node name="Prop28" type="StaticBody2D" parent="Props"]
+position = Vector2(2052, 344)
+script = ExtResource("4_prop")
+prop_type = "nightstand"
+
+[node name="Prop29" type="StaticBody2D" parent="Props"]
+position = Vector2(1600, 335)
+script = ExtResource("4_prop")
+prop_type = "bookshelf"
+
+[node name="Prop30" type="StaticBody2D" parent="Props"]
+position = Vector2(1722, 334)
+script = ExtResource("4_prop")
+prop_type = "tv"
+
+[node name="Prop31" type="StaticBody2D" parent="Props"]
+position = Vector2(1600, 664)
+rotation = 3.141593
+script = ExtResource("4_prop")
+prop_type = "armchair"
+
+[node name="Prop32" type="StaticBody2D" parent="Props"]
+position = Vector2(1548, 716)
+script = ExtResource("4_prop")
+prop_type = "lamp"
+
+[node name="Prop33" type="StaticBody2D" parent="Props"]
+position = Vector2(2044, 712)
+script = ExtResource("4_prop")
+prop_type = "box"
+
+[node name="Prop34" type="StaticBody2D" parent="Props"]
+position = Vector2(1990, 716)
+script = ExtResource("4_prop")
+prop_type = "bin"
+
+[node name="Prop35" type="StaticBody2D" parent="Props"]
+position = Vector2(1830, 334)
+script = ExtResource("4_prop")
+prop_type = "dresser"
+
+[node name="Prop36" type="StaticBody2D" parent="Props"]
+position = Vector2(1530, 450)
+script = ExtResource("4_prop")
+prop_type = "guitar"
+
+[node name="Prop37" type="StaticBody2D" parent="Props"]
+position = Vector2(1700, 560)
+script = ExtResource("4_prop")
+prop_type = "beanbag"
+
+[node name="Prop38" type="StaticBody2D" parent="Props"]
+position = Vector2(1960, 470)
+script = ExtResource("4_prop")
+prop_type = "teddy"
+
+[node name="Prop39" type="StaticBody2D" parent="Props"]
+position = Vector2(2050, 600)
+script = ExtResource("4_prop")
+prop_type = "fan"
+
+[node name="Prop40" type="StaticBody2D" parent="Props"]
+position = Vector2(551, 798)
+script = ExtResource("4_prop")
+prop_type = "fridge"
+
+[node name="Prop41" type="StaticBody2D" parent="Props"]
+position = Vector2(800, 795)
+script = ExtResource("4_prop")
+prop_type = "stove"
+
+[node name="Prop42" type="StaticBody2D" parent="Props"]
+position = Vector2(880, 792)
+script = ExtResource("4_prop")
+prop_type = "counter"
+
+[node name="Prop43" type="StaticBody2D" parent="Props"]
+position = Vector2(1050, 792)
+script = ExtResource("4_prop")
+prop_type = "counter"
+
+[node name="Prop44" type="StaticBody2D" parent="Props"]
+position = Vector2(800, 1080)
+script = ExtResource("4_prop")
+prop_type = "dining_table"
+
+[node name="Prop45" type="StaticBody2D" parent="Props"]
+position = Vector2(770, 1033)
+script = ExtResource("4_prop")
+prop_type = "chair"
+
+[node name="Prop46" type="StaticBody2D" parent="Props"]
+position = Vector2(830, 1033)
+script = ExtResource("4_prop")
+prop_type = "chair"
+
+[node name="Prop47" type="StaticBody2D" parent="Props"]
+position = Vector2(770, 1127)
+rotation = 3.141593
+script = ExtResource("4_prop")
+prop_type = "chair"
+
+[node name="Prop48" type="StaticBody2D" parent="Props"]
+position = Vector2(830, 1127)
+rotation = 3.141593
+script = ExtResource("4_prop")
+prop_type = "chair"
+
+[node name="Prop49" type="StaticBody2D" parent="Props"]
+position = Vector2(727, 1080)
+rotation = -1.570796
+script = ExtResource("4_prop")
+prop_type = "chair"
+
+[node name="Prop50" type="StaticBody2D" parent="Props"]
+position = Vector2(873, 1080)
+rotation = 1.570796
+script = ExtResource("4_prop")
+prop_type = "chair"
+
+[node name="Prop51" type="StaticBody2D" parent="Props"]
+position = Vector2(545, 1452)
+script = ExtResource("4_prop")
+prop_type = "bin"
+
+[node name="Prop52" type="StaticBody2D" parent="Props"]
+position = Vector2(1060, 1200)
+script = ExtResource("4_prop")
+prop_type = "plant"
+
+[node name="Prop53" type="StaticBody2D" parent="Props"]
+position = Vector2(1056, 1448)
+script = ExtResource("4_prop")
+prop_type = "box"
+
+[node name="Prop54" type="StaticBody2D" parent="Props"]
+position = Vector2(1010, 1452)
+script = ExtResource("4_prop")
+prop_type = "box"
+
+[node name="Prop55" type="StaticBody2D" parent="Props"]
+position = Vector2(535, 940)
+rotation = 1.570796
+script = ExtResource("4_prop")
+prop_type = "bookshelf"
+
+[node name="Prop56" type="StaticBody2D" parent="Props"]
+position = Vector2(700, 1458)
+rotation = 3.141593
+script = ExtResource("4_prop")
+prop_type = "counter"
+
+[node name="Prop57" type="StaticBody2D" parent="Props"]
+position = Vector2(790, 1460)
+rotation = 3.141593
+script = ExtResource("4_prop")
+prop_type = "stove"
+
+[node name="Prop58" type="StaticBody2D" parent="Props"]
+position = Vector2(870, 1460)
+script = ExtResource("4_prop")
+prop_type = "fridge"
+
+[node name="Prop59" type="StaticBody2D" parent="Props"]
+position = Vector2(560, 1330)
+script = ExtResource("4_prop")
+prop_type = "plant"
+
+[node name="Prop60" type="StaticBody2D" parent="Props"]
+position = Vector2(600, 1452)
+script = ExtResource("4_prop")
+prop_type = "box"
+
+[node name="Prop61" type="StaticBody2D" parent="Props"]
+position = Vector2(965, 785)
+script = ExtResource("4_prop")
+prop_type = "microwave"
+
+[node name="Prop62" type="StaticBody2D" parent="Props"]
+position = Vector2(620, 790)
+script = ExtResource("4_prop")
+prop_type = "water_cooler"
+
+[node name="Prop63" type="StaticBody2D" parent="Props"]
+position = Vector2(960, 1460)
+script = ExtResource("4_prop")
+prop_type = "rice_sack"
+
+[node name="Prop64" type="StaticBody2D" parent="Props"]
+position = Vector2(740, 795)
+script = ExtResource("4_prop")
+prop_type = "gas_tank"
+
+[node name="Prop65" type="StaticBody2D" parent="Props"]
+position = Vector2(1600, 786)
+script = ExtResource("4_prop")
+prop_type = "tv"
+
+[node name="Prop66" type="StaticBody2D" parent="Props"]
+position = Vector2(1600, 1002)
+rotation = 3.141593
+script = ExtResource("4_prop")
+prop_type = "sofa"
+
+[node name="Prop67" type="StaticBody2D" parent="Props"]
+position = Vector2(1600, 905)
+script = ExtResource("4_prop")
+prop_type = "coffee_table"
+
+[node name="Prop68" type="StaticBody2D" parent="Props"]
+position = Vector2(1448, 905)
+rotation = -1.570796
+script = ExtResource("4_prop")
+prop_type = "armchair"
+
+[node name="Prop69" type="StaticBody2D" parent="Props"]
+position = Vector2(1752, 905)
+rotation = 1.570796
+script = ExtResource("4_prop")
+prop_type = "armchair"
+
+[node name="Prop70" type="StaticBody2D" parent="Props"]
+position = Vector2(1132, 870)
+rotation = 1.570796
+script = ExtResource("4_prop")
+prop_type = "bookshelf"
+
+[node name="Prop71" type="StaticBody2D" parent="Props"]
+position = Vector2(1140, 1450)
+script = ExtResource("4_prop")
+prop_type = "plant"
+
+[node name="Prop72" type="StaticBody2D" parent="Props"]
+position = Vector2(2052, 798)
+script = ExtResource("4_prop")
+prop_type = "plant"
+
+[node name="Prop73" type="StaticBody2D" parent="Props"]
+position = Vector2(1690, 790)
+script = ExtResource("4_prop")
+prop_type = "lamp"
+
+[node name="Prop74" type="StaticBody2D" parent="Props"]
+position = Vector2(1510, 790)
+script = ExtResource("4_prop")
+prop_type = "lamp"
+
+[node name="Prop75" type="StaticBody2D" parent="Props"]
+position = Vector2(1960, 792)
+script = ExtResource("4_prop")
+prop_type = "desk"
+
+[node name="Prop76" type="StaticBody2D" parent="Props"]
+position = Vector2(1960, 838)
+rotation = 3.141593
+script = ExtResource("4_prop")
+prop_type = "chair"
+
+[node name="Prop77" type="StaticBody2D" parent="Props"]
+position = Vector2(1738, 1200)
+rotation = -1.570796
+script = ExtResource("4_prop")
+prop_type = "bookshelf"
+
+[node name="Prop78" type="StaticBody2D" parent="Props"]
+position = Vector2(1190, 1452)
+script = ExtResource("4_prop")
+prop_type = "box"
+
+[node name="Prop79" type="StaticBody2D" parent="Props"]
+position = Vector2(1520, 1456)
+script = ExtResource("4_prop")
+prop_type = "bin"
+
+[node name="Prop80" type="StaticBody2D" parent="Props"]
+position = Vector2(1300, 1452)
+script = ExtResource("4_prop")
+prop_type = "plant"
+
+[node name="Prop81" type="StaticBody2D" parent="Props"]
+position = Vector2(2050, 1090)
+script = ExtResource("4_prop")
+prop_type = "crate"
+
+[node name="Prop82" type="StaticBody2D" parent="Props"]
+position = Vector2(1990, 1100)
+script = ExtResource("4_prop")
+prop_type = "box"
+
+[node name="Prop83" type="StaticBody2D" parent="Props"]
+position = Vector2(1135, 1150)
+rotation = -1.570796
+script = ExtResource("4_prop")
+prop_type = "sofa"
+
+[node name="Prop84" type="StaticBody2D" parent="Props"]
+position = Vector2(1215, 1150)
+rotation = 1.570796
+script = ExtResource("4_prop")
+prop_type = "coffee_table"
+
+[node name="Prop85" type="StaticBody2D" parent="Props"]
+position = Vector2(1135, 1236)
+script = ExtResource("4_prop")
+prop_type = "lamp"
+
+[node name="Prop86" type="StaticBody2D" parent="Props"]
+position = Vector2(1300, 1110)
+rotation = 3.141593
+script = ExtResource("4_prop")
+prop_type = "armchair"
+
+[node name="Prop87" type="StaticBody2D" parent="Props"]
+position = Vector2(1712, 1452)
+script = ExtResource("4_prop")
+prop_type = "plant"
+
+[node name="Prop88" type="StaticBody2D" parent="Props"]
+position = Vector2(1655, 1456)
+script = ExtResource("4_prop")
+prop_type = "box"
+
+[node name="Prop89" type="StaticBody2D" parent="Props"]
+position = Vector2(1590, 1475)
+rotation = 3.141593
+script = ExtResource("4_prop")
+prop_type = "tv"
+
+[node name="Prop90" type="StaticBody2D" parent="Props"]
+position = Vector2(1640, 1150)
+script = ExtResource("4_prop")
+prop_type = "piano"
+
+[node name="Prop91" type="StaticBody2D" parent="Props"]
+position = Vector2(1900, 1100)
+script = ExtResource("4_prop")
+prop_type = "fish_tank"
+
+[node name="Prop92" type="StaticBody2D" parent="Props"]
+position = Vector2(1470, 790)
+script = ExtResource("4_prop")
+prop_type = "speaker"
+
+[node name="Prop93" type="StaticBody2D" parent="Props"]
+position = Vector2(1730, 790)
+script = ExtResource("4_prop")
+prop_type = "speaker"
+
+[node name="Prop94" type="StaticBody2D" parent="Props"]
+position = Vector2(1880, 950)
+script = ExtResource("4_prop")
+prop_type = "fan"
+
+[node name="Prop95" type="StaticBody2D" parent="Props"]
+position = Vector2(2050, 1182)
+script = ExtResource("4_prop")
+prop_type = "washer"
+
+[node name="Prop96" type="StaticBody2D" parent="Props"]
+position = Vector2(2000, 1182)
+script = ExtResource("4_prop")
+prop_type = "washer"
+
+[node name="Prop97" type="StaticBody2D" parent="Props"]
+position = Vector2(1922, 1180)
+script = ExtResource("4_prop")
+prop_type = "counter"
+
+[node name="Prop98" type="StaticBody2D" parent="Props"]
+position = Vector2(1800, 1450)
+script = ExtResource("4_prop")
+prop_type = "box"
+
+[node name="Prop99" type="StaticBody2D" parent="Props"]
+position = Vector2(1846, 1446)
+script = ExtResource("4_prop")
+prop_type = "box"
+
+[node name="Prop100" type="StaticBody2D" parent="Props"]
+position = Vector2(2042, 1440)
+script = ExtResource("4_prop")
+prop_type = "crate"
+
+[node name="Prop101" type="StaticBody2D" parent="Props"]
+position = Vector2(1798, 1186)
+script = ExtResource("4_prop")
+prop_type = "bin"
+
+[node name="Prop102" type="StaticBody2D" parent="Props"]
+position = Vector2(1900, 1300)
+script = ExtResource("4_prop")
+prop_type = "ironing_board"
+
+[node name="Prop103" type="StaticBody2D" parent="Props"]
+position = Vector2(1960, 1400)
+script = ExtResource("4_prop")
+prop_type = "drying_rack"
+
+[node name="Prop104" type="StaticBody2D" parent="Props"]
+position = Vector2(1800, 1390)
+script = ExtResource("4_prop")
+prop_type = "bucket"
+
+[node name="Prop105" type="StaticBody2D" parent="Props"]
+position = Vector2(2050, 1300)
+script = ExtResource("4_prop")
+prop_type = "toolbox"
+
+[node name="Prop106" type="StaticBody2D" parent="Props"]
+position = Vector2(2050, 1240)
+script = ExtResource("4_prop")
+prop_type = "laundry_basket"
+
+[node name="Prop107" type="StaticBody2D" parent="Props"]
+position = Vector2(150, 620)
+script = ExtResource("4_prop")
+prop_type = "bush"
+
+[node name="Prop108" type="StaticBody2D" parent="Props"]
+position = Vector2(380, 1320)
+script = ExtResource("4_prop")
+prop_type = "bush"
+
+[node name="Prop109" type="StaticBody2D" parent="Props"]
+position = Vector2(2300, 880)
+script = ExtResource("4_prop")
+prop_type = "bush"
+
+[node name="Prop110" type="StaticBody2D" parent="Props"]
+position = Vector2(2480, 700)
+script = ExtResource("4_prop")
+prop_type = "bush"
+
+[node name="Prop111" type="StaticBody2D" parent="Props"]
+position = Vector2(700, 1660)
+script = ExtResource("4_prop")
+prop_type = "bush"
+
+[node name="Prop112" type="StaticBody2D" parent="Props"]
+position = Vector2(1800, 1660)
+script = ExtResource("4_prop")
+prop_type = "bush"
+
+[node name="Prop113" type="StaticBody2D" parent="Props"]
+position = Vector2(1600, 130)
+script = ExtResource("4_prop")
+prop_type = "bush"
+
+[node name="Prop114" type="StaticBody2D" parent="Props"]
+position = Vector2(440, 150)
+script = ExtResource("4_prop")
+prop_type = "bush"
+
+[node name="Prop115" type="StaticBody2D" parent="Props"]
+position = Vector2(1250, 1650)
+script = ExtResource("4_prop")
+prop_type = "bush"
+
+[node name="Prop116" type="StaticBody2D" parent="Props"]
+position = Vector2(2250, 120)
+script = ExtResource("4_prop")
+prop_type = "bush"
+
+[node name="Prop117" type="StaticBody2D" parent="Props"]
+position = Vector2(2350, 500)
+script = ExtResource("4_prop")
+prop_type = "barrel"
+
+[node name="Prop118" type="StaticBody2D" parent="Props"]
+position = Vector2(2395, 560)
+script = ExtResource("4_prop")
+prop_type = "barrel"
+
+[node name="Prop119" type="StaticBody2D" parent="Props"]
+position = Vector2(200, 1360)
+script = ExtResource("4_prop")
+prop_type = "barrel"
+
+[node name="Prop120" type="StaticBody2D" parent="Props"]
+position = Vector2(2300, 1500)
+script = ExtResource("4_prop")
+prop_type = "crate"
+
+[node name="Prop121" type="StaticBody2D" parent="Props"]
+position = Vector2(2360, 1565)
+script = ExtResource("4_prop")
+prop_type = "crate"
+
+[node name="Prop122" type="StaticBody2D" parent="Props"]
+position = Vector2(2430, 1470)
+script = ExtResource("4_prop")
+prop_type = "box"
+
+[node name="Prop123" type="StaticBody2D" parent="Props"]
+position = Vector2(1290, 1560)
+script = ExtResource("4_prop")
+prop_type = "bin"
+
+[node name="Prop124" type="StaticBody2D" parent="Props"]
+position = Vector2(160, 860)
+script = ExtResource("4_prop")
+prop_type = "crate"
+
+[node name="Prop125" type="StaticBody2D" parent="Props"]
+position = Vector2(215, 900)
+script = ExtResource("4_prop")
+prop_type = "box"
+
+[node name="Prop126" type="StaticBody2D" parent="Props"]
+position = Vector2(1540, 1650)
+script = ExtResource("4_prop")
+prop_type = "motorbike"
+
+[node name="Prop127" type="StaticBody2D" parent="Props"]
+position = Vector2(1590, 1650)
+script = ExtResource("4_prop")
+prop_type = "bicycle"
+
+[node name="Prop128" type="StaticBody2D" parent="Props"]
+position = Vector2(2200, 1000)
+rotation = 1.570796
+script = ExtResource("4_prop")
+prop_type = "motorbike"
+
+[node name="Prop129" type="StaticBody2D" parent="Props"]
+position = Vector2(1250, 1540)
+script = ExtResource("4_prop")
+prop_type = "flower_pot"
+
+[node name="Prop130" type="StaticBody2D" parent="Props"]
+position = Vector2(1480, 1540)
+script = ExtResource("4_prop")
+prop_type = "flower_pot"
+
+[node name="Prop131" type="StaticBody2D" parent="Props"]
+position = Vector2(700, 200)
+script = ExtResource("4_prop")
+prop_type = "flower_pot"
+
+[node name="Prop132" type="StaticBody2D" parent="Props"]
+position = Vector2(1900, 220)
+script = ExtResource("4_prop")
+prop_type = "flower_pot"
+
+[node name="Prop133" type="StaticBody2D" parent="Props"]
+position = Vector2(420, 1100)
+script = ExtResource("4_prop")
+prop_type = "water_jar"
+
+[node name="Prop134" type="StaticBody2D" parent="Props"]
+position = Vector2(900, 1560)
+script = ExtResource("4_prop")
+prop_type = "bench"
+
+[node name="Prop135" type="StaticBody2D" parent="Props"]
+position = Vector2(1300, 200)
+script = ExtResource("4_prop")
+prop_type = "bench"
+
+[node name="Players" type="Node2D" parent="."]
+
+[node name="Effects" type="Node2D" parent="."]
+
+[node name="Trees" type="Node2D" parent="."]
+
+[node name="Tree1" type="StaticBody2D" parent="Trees"]
+position = Vector2(210, 250)
+script = ExtResource("7_tree")
+canopy_radius = 90.0
+
+[node name="Tree2" type="StaticBody2D" parent="Trees"]
+position = Vector2(250, 1050)
+script = ExtResource("7_tree")
+canopy_radius = 85.0
+
+[node name="Tree3" type="StaticBody2D" parent="Trees"]
+position = Vector2(2400, 290)
+script = ExtResource("7_tree")
+canopy_radius = 95.0
+
+[node name="Tree4" type="StaticBody2D" parent="Trees"]
+position = Vector2(2380, 1220)
+script = ExtResource("7_tree")
+canopy_radius = 90.0
+
+[node name="Tree5" type="StaticBody2D" parent="Trees"]
+position = Vector2(300, 1600)
+script = ExtResource("7_tree")
+canopy_radius = 85.0
+
+[node name="Tree6" type="StaticBody2D" parent="Trees"]
+position = Vector2(1000, 140)
+script = ExtResource("7_tree")
+canopy_radius = 80.0
+
+[node name="Tree7" type="StaticBody2D" parent="Trees"]
+position = Vector2(2420, 1660)
+script = ExtResource("7_tree")
+canopy_radius = 80.0
+
+[node name="Tree8" type="StaticBody2D" parent="Trees"]
+position = Vector2(900, 1660)
+script = ExtResource("7_tree")
+canopy_radius = 75.0
+
+[node name="Tree9" type="StaticBody2D" parent="Trees"]
+position = Vector2(2000, 1650)
+script = ExtResource("7_tree")
+canopy_radius = 80.0
+
+[node name="SpawnPoints" type="Node2D" parent="."]
+
+[node name="Hiders" type="Node2D" parent="SpawnPoints"]
+
+[node name="Hider1" type="Marker2D" parent="SpawnPoints/Hiders"]
+position = Vector2(1560, 1320)
+
+[node name="Hider2" type="Marker2D" parent="SpawnPoints/Hiders"]
+position = Vector2(1545, 1367)
+
+[node name="Hider3" type="Marker2D" parent="SpawnPoints/Hiders"]
+position = Vector2(1505, 1396)
+
+[node name="Hider4" type="Marker2D" parent="SpawnPoints/Hiders"]
+position = Vector2(1455, 1396)
+
+[node name="Hider5" type="Marker2D" parent="SpawnPoints/Hiders"]
+position = Vector2(1415, 1367)
+
+[node name="Hider6" type="Marker2D" parent="SpawnPoints/Hiders"]
+position = Vector2(1400, 1320)
+
+[node name="Hider7" type="Marker2D" parent="SpawnPoints/Hiders"]
+position = Vector2(1415, 1273)
+
+[node name="Hider8" type="Marker2D" parent="SpawnPoints/Hiders"]
+position = Vector2(1455, 1244)
+
+[node name="Hider9" type="Marker2D" parent="SpawnPoints/Hiders"]
+position = Vector2(1505, 1244)
+
+[node name="Hider10" type="Marker2D" parent="SpawnPoints/Hiders"]
+position = Vector2(1545, 1273)
+
+[node name="Seekers" type="Node2D" parent="SpawnPoints"]
+
+[node name="Seeker1" type="Marker2D" parent="SpawnPoints/Seekers"]
+position = Vector2(1395, 1650)
+
+[node name="Seeker2" type="Marker2D" parent="SpawnPoints/Seekers"]
+position = Vector2(1350, 1650)
+
+[node name="Seeker3" type="Marker2D" parent="SpawnPoints/Seekers"]
+position = Vector2(1440, 1650)
+
+[node name="HUD" type="CanvasLayer" parent="."]
+script = ExtResource("5_hud")
+
+[node name="TopLabel" type="Label" parent="HUD"]
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 12.0
+offset_bottom = 50.0
+grow_horizontal = 2
+mouse_filter = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
+theme_override_font_sizes/font_size = 26
+text = "..."
+horizontal_alignment = 1
+
+[node name="MessageLabel" type="Label" parent="HUD"]
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 58.0
+offset_bottom = 90.0
+grow_horizontal = 2
+mouse_filter = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
+theme_override_font_sizes/font_size = 20
+horizontal_alignment = 1
+
+[node name="InfoLabel" type="Label" parent="HUD"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -320.0
+offset_top = 14.0
+offset_right = -16.0
+offset_bottom = 90.0
+grow_horizontal = 0
+mouse_filter = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
+theme_override_font_sizes/font_size = 17
+horizontal_alignment = 2
+
+[node name="RoleLabel" type="Label" parent="HUD"]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = -70.0
+offset_right = -16.0
+offset_bottom = -12.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
+theme_override_font_sizes/font_size = 16
+vertical_alignment = 2
+
+[node name="Blind" type="ColorRect" parent="HUD"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.03, 0.03, 0.06, 1)
+
+[node name="BlindLabel" type="Label" parent="HUD/Blind"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_colors/font_color = Color(1, 0.6, 0.55, 1)
+theme_override_font_sizes/font_size = 28
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="EndLabel" type="Label" parent="HUD"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 12
+theme_override_font_sizes/font_size = 52
+horizontal_alignment = 1
+vertical_alignment = 1
